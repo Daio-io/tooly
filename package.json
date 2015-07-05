@@ -6,6 +6,10 @@
   "scripts": {
     "test": "mocha"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Daveloper87/tooly.git"
+  },
   "author": "Daveloper87 <me@daio.io> (http://www.daio.io)",
   "license": "ISC",
   "devDependencies": {

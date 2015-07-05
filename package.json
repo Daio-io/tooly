@@ -1,0 +1,11 @@
+{
+  "name": "tooly",
+  "version": "1.0.0",
+  "description": "A micro javascript utility library",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Daveloper87 <me@daio.io> (http://www.daio.io)",
+  "license": "ISC"
+}

@@ -1,7 +1,7 @@
 {
   "name": "tooly",
   "version": "1.0.0",
-  "description": "A micro javascript utility library",
+  "description": "A javascript micro utility library",
   "main": "index.js",
   "scripts": {
     "test": "mocha"

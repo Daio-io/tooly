@@ -22,6 +22,12 @@ describe('Util Tools', function() {
       expect(tools.existy('hello')).to.equal(true);
 
     });
+    
+    it('should return false when string of value "null" passed in', function() {
+
+      expect(tools.existy('null')).to.equal(false);
+
+    });
 
   });
 

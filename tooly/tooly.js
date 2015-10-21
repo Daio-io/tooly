@@ -71,11 +71,29 @@ function clippy(clippable, clipLength) {
 
 }
 
+/**
+ * Safely converts any string value number to an integer value of that string
+ * @param stringInt {string} - string to clip
+ * @returns {int}
+ */
+function inty(stringInt) {
+
+  var converted = parseInt(stringInt);
+
+  if (!isNaN(converted)) {
+    return converted;
+  }
+
+  return 0;
+
+}
+
 module.exports = {
 
   existy: existy,
   cleansey: cleansey,
   removey: removey,
-  clippy: clippy
+  clippy: clippy,
+  inty: inty
 
 };

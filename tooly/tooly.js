@@ -72,13 +72,32 @@ function clippy(clippable, clipLength) {
 }
 
 /**
- * Safely converts any string value number to an integer value of that string
- * @param stringInt {string} - string to clip
+ * Safely converts any string value number to an integer value of that string.
+ * Rounds float values to integer
+ * @param stringInt {string} - string to convert to int
  * @returns {int}
  */
 function inty(stringInt) {
 
   var converted = parseInt(stringInt);
+
+  if (!isNaN(converted)) {
+    return converted;
+  }
+
+  return 0;
+
+}
+
+/**
+ * Safely converts any string value number to an float value of that string.
+ * This also works for the same as inty(), except it will not round when supplied with a float
+ * @param stringFloat {string} - string to convert to float
+ * @returns {float}
+ */
+function floaty(stringFloat) {
+
+  var converted = parseFloat(stringFloat);
 
   if (!isNaN(converted)) {
     return converted;
@@ -94,6 +113,7 @@ module.exports = {
   cleansey: cleansey,
   removey: removey,
   clippy: clippy,
-  inty: inty
+  inty: inty,
+  floaty: floaty
 
 };

@@ -228,6 +228,26 @@ describe('Util Tools', function () {
 
     });
 
-  })
+  });
+
+  describe('floaty', function () {
+
+    it('should convert string to float value', function () {
+
+      expect(tools.floaty("12.23")).to.equal(12.23);
+
+    });
+
+    it('should return 0 when not a number', function () {
+
+      expect(tools.inty({})).to.equal(0);
+      expect(tools.inty([])).to.equal(0);
+      expect(tools.inty(function () {
+      })).to.equal(0);
+      expect(tools.inty("NOT A NUMBER")).to.equal(0);
+
+    });
+
+  });
 
 });

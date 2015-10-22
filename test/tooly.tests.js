@@ -225,6 +225,7 @@ describe('Util Tools', function () {
       expect(tools.inty(function () {
       })).to.equal(0);
       expect(tools.inty("NOT A NUMBER")).to.equal(0);
+      expect(tools.inty()).to.equal(0);
 
     });
 
@@ -245,6 +246,7 @@ describe('Util Tools', function () {
       expect(tools.inty(function () {
       })).to.equal(0);
       expect(tools.inty("NOT A NUMBER")).to.equal(0);
+      expect(tools.inty()).to.equal(0);
 
     });
 

@@ -12,6 +12,7 @@ describe('Util Tools', function () {
       expect(tools.existy()).to.equal(false);
       expect(tools.existy(undefined)).to.equal(false);
       expect(tools.existy(null)).to.equal(false);
+      expect(tools.existy('')).to.equal(false);
 
     });
 

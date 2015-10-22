@@ -8,7 +8,7 @@
 function existy(value) {
 
   if (typeof value === 'string') {
-    return value !== 'null';
+    return value !== 'null' && value !== '';
   }
   return value != null;
 

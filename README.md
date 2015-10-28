@@ -1,3 +1,3 @@
 # tooly
 
-A javascript micro utility library
+A micro utility library written in Javascript

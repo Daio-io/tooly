@@ -1,7 +1,7 @@
 'use strict';
 
 var expect = require('chai').expect;
-var tools = require('../tooly/tooly.js');
+var tooly = require('../tooly/tooly.js');
 
 describe('Util Tools', function () {
 
@@ -9,24 +9,24 @@ describe('Util Tools', function () {
 
     it('should return false if nothing is passed in', function () {
 
-      expect(tools.existy()).to.equal(false);
-      expect(tools.existy(undefined)).to.equal(false);
-      expect(tools.existy(null)).to.equal(false);
-      expect(tools.existy('')).to.equal(false);
+      expect(tooly.existy()).to.equal(false);
+      expect(tooly.existy(undefined)).to.equal(false);
+      expect(tooly.existy(null)).to.equal(false);
+      expect(tooly.existy('')).to.equal(false);
 
     });
 
     it('should return true when value passed in', function () {
 
-      expect(tools.existy([])).to.equal(true);
-      expect(tools.existy({})).to.equal(true);
-      expect(tools.existy('hello')).to.equal(true);
+      expect(tooly.existy([])).to.equal(true);
+      expect(tooly.existy({})).to.equal(true);
+      expect(tooly.existy('hello')).to.equal(true);
 
     });
 
     it('should return false when string of value "null" passed in', function () {
 
-      expect(tools.existy('null')).to.equal(false);
+      expect(tooly.existy('null')).to.equal(false);
 
     });
 
@@ -37,7 +37,7 @@ describe('Util Tools', function () {
     it('should keep spaces', function () {
 
       var word = 'hello world';
-      var cleansed = tools.cleansey(word);
+      var cleansed = tooly.cleansey(word);
       expect(cleansed).to.equal(word);
 
     });
@@ -45,7 +45,7 @@ describe('Util Tools', function () {
     it('should keep capital letters', function () {
 
       var word = 'HelLo WorLd';
-      var cleansed = tools.cleansey(word);
+      var cleansed = tooly.cleansey(word);
       expect(cleansed).to.equal(word);
 
     });
@@ -53,28 +53,28 @@ describe('Util Tools', function () {
     it('should keep hyphens letters', function () {
 
       var word = 'HelLo-WorLd--';
-      var cleansed = tools.cleansey(word);
+      var cleansed = tooly.cleansey(word);
       expect(cleansed).to.equal(word);
 
     });
 
     it('should remove numbers', function () {
 
-      var cleansed = tools.cleansey('22h3llo');
+      var cleansed = tooly.cleansey('22h3llo');
       expect(cleansed).to.equal('hllo');
 
     });
 
     it('should remove special characters', function () {
 
-      var cleansed = tools.cleansey('cr@zy\n word!@£$%^&*()_+{}":|?><~/.,\';][=§±');
+      var cleansed = tooly.cleansey('cr@zy\n word!@£$%^&*()_+{}":|?><~/.,\';][=§±');
       expect(cleansed).to.equal('crzy word');
 
     });
 
     it('should return empty string if passed empty value', function () {
 
-      expect(tools.cleansey()).to.be.empty;
+      expect(tooly.cleansey()).to.be.empty;
 
     })
 
@@ -84,7 +84,7 @@ describe('Util Tools', function () {
 
     it('should return string with removed value', function () {
 
-      var replaced = tools.removey('h', 'hello');
+      var replaced = tooly.removey('h', 'hello');
       expect(replaced).to.equal('ello');
 
     });
@@ -102,7 +102,7 @@ describe('Util Tools', function () {
 
       objs.forEach(function (remove) {
 
-        var res = tools.removey(remove, word);
+        var res = tooly.removey(remove, word);
         expect(res).to.be.empty;
 
       });
@@ -116,7 +116,7 @@ describe('Util Tools', function () {
     it('should return clipped string', function () {
 
       var longString = 'hello i am a long string';
-      var clippedString = tools.clippy(longString, 5);
+      var clippedString = tooly.clippy(longString, 5);
 
       expect(clippedString).to.have.length(5);
 
@@ -125,7 +125,7 @@ describe('Util Tools', function () {
     it('should ignore clips longer than actual string length', function () {
 
       var longString = 'hello I am a long string';
-      var clippedString = tools.clippy(longString, 100);
+      var clippedString = tooly.clippy(longString, 100);
 
       expect(clippedString).to.have.length(longString.length);
 
@@ -134,12 +134,12 @@ describe('Util Tools', function () {
     it('should clip 0 or less to empty', function () {
 
       var longString = 'hello I am a long string';
-      var clippedString = tools.clippy(longString, 0);
+      var clippedString = tooly.clippy(longString, 0);
 
       expect(clippedString).to.have.length(0);
       expect(clippedString).to.be.empty;
 
-      var minusString = tools.clippy(longString, -1);
+      var minusString = tooly.clippy(longString, -1);
 
       expect(minusString).to.have.length(0);
       expect(minusString).to.be.empty;
@@ -148,11 +148,11 @@ describe('Util Tools', function () {
 
     it('should return empty string if string not passed in', function () {
 
-      expect(tools.cleansey()).to.be.empty;
-      expect(tools.cleansey({})).to.be.empty;
-      expect(tools.cleansey([])).to.be.empty;
-      expect(tools.cleansey(null)).to.be.empty;
-      expect(tools.cleansey(undefined)).to.be.empty;
+      expect(tooly.cleansey()).to.be.empty;
+      expect(tooly.cleansey({})).to.be.empty;
+      expect(tooly.cleansey([])).to.be.empty;
+      expect(tooly.cleansey(null)).to.be.empty;
+      expect(tooly.cleansey(undefined)).to.be.empty;
 
     });
 
@@ -163,7 +163,7 @@ describe('Util Tools', function () {
     it('should return clipped string', function () {
 
       var longString = 'hello i am a long string';
-      var clippedString = tools.clippy(longString, 5);
+      var clippedString = tooly.clippy(longString, 5);
 
       expect(clippedString).to.have.length(5);
 
@@ -172,7 +172,7 @@ describe('Util Tools', function () {
     it('should ignore clips longer than actual string length', function () {
 
       var longString = 'hello I am a long string';
-      var clippedString = tools.clippy(longString, 100);
+      var clippedString = tooly.clippy(longString, 100);
 
       expect(clippedString).to.have.length(longString.length);
 
@@ -181,12 +181,12 @@ describe('Util Tools', function () {
     it('should clip 0 or less to empty', function () {
 
       var longString = 'hello I am a long string';
-      var clippedString = tools.clippy(longString, 0);
+      var clippedString = tooly.clippy(longString, 0);
 
       expect(clippedString).to.have.length(0);
       expect(clippedString).to.be.empty;
 
-      var minusString = tools.clippy(longString, -1);
+      var minusString = tooly.clippy(longString, -1);
 
       expect(minusString).to.have.length(0);
       expect(minusString).to.be.empty;
@@ -195,11 +195,11 @@ describe('Util Tools', function () {
 
     it('should return empty string if string not passed in', function () {
 
-      expect(tools.cleansey()).to.be.empty;
-      expect(tools.cleansey({})).to.be.empty;
-      expect(tools.cleansey([])).to.be.empty;
-      expect(tools.cleansey(null)).to.be.empty;
-      expect(tools.cleansey(undefined)).to.be.empty;
+      expect(tooly.cleansey()).to.be.empty;
+      expect(tooly.cleansey({})).to.be.empty;
+      expect(tooly.cleansey([])).to.be.empty;
+      expect(tooly.cleansey(null)).to.be.empty;
+      expect(tooly.cleansey(undefined)).to.be.empty;
 
     });
 
@@ -209,24 +209,24 @@ describe('Util Tools', function () {
 
     it('should convert string to integer value', function () {
 
-      expect(tools.inty("123")).to.equal(123);
+      expect(tooly.inty("123")).to.equal(123);
 
     });
 
     it('should round floats/doubles string to integer', function () {
 
-      expect(tools.inty("10.50")).to.equal(10);
+      expect(tooly.inty("10.50")).to.equal(10);
 
     });
 
     it('should return 0 when not a number', function () {
 
-      expect(tools.inty({})).to.equal(0);
-      expect(tools.inty([])).to.equal(0);
-      expect(tools.inty(function () {
+      expect(tooly.inty({})).to.equal(0);
+      expect(tooly.inty([])).to.equal(0);
+      expect(tooly.inty(function () {
       })).to.equal(0);
-      expect(tools.inty("NOT A NUMBER")).to.equal(0);
-      expect(tools.inty()).to.equal(0);
+      expect(tooly.inty("NOT A NUMBER")).to.equal(0);
+      expect(tooly.inty()).to.equal(0);
 
     });
 
@@ -236,18 +236,48 @@ describe('Util Tools', function () {
 
     it('should convert string to float value', function () {
 
-      expect(tools.floaty("12.23")).to.equal(12.23);
+      expect(tooly.floaty("12.23")).to.equal(12.23);
 
     });
 
     it('should return 0 when not a number', function () {
 
-      expect(tools.inty({})).to.equal(0);
-      expect(tools.inty([])).to.equal(0);
-      expect(tools.inty(function () {
+      expect(tooly.inty({})).to.equal(0);
+      expect(tooly.inty([])).to.equal(0);
+      expect(tooly.inty(function () {
       })).to.equal(0);
-      expect(tools.inty("NOT A NUMBER")).to.equal(0);
-      expect(tools.inty()).to.equal(0);
+      expect(tooly.inty("NOT A NUMBER")).to.equal(0);
+      expect(tooly.inty()).to.equal(0);
+
+    });
+
+  });
+
+
+  describe('defaulty', function () {
+
+    var someDefault = 'some_default';
+
+    it('should return the value if exists', function () {
+
+      expect(tooly.defaulty('hello', someDefault)).to.equal('hello');
+      expect(tooly.defaulty([], someDefault)).to.equal([]);
+      expect(tooly.defaulty({}, someDefault)).to.equal({});
+
+    });
+
+    it('should return a default if value does not exist', function () {
+
+
+      expect(tooly.defaulty('', someDefault)).to.equal(someDefault);
+      expect(tooly.defaulty(null, someDefault)).to.equal(someDefault);
+      expect(tooly.defaulty(undefined, someDefault)).to.equal(someDefault);
+
+    });
+
+    it('should return undefined value does not exist and no default provided', function () {
+
+      expect(tooly.defaulty()).to.be.undefined;
 
     });
 

@@ -8,9 +8,26 @@
 function existy(value) {
 
   if (typeof value === 'string') {
-    return value !== 'null' && value !== '';
+    return value !== 'null'
+      && value !== ''
+      && value !== 'undefined';
   }
   return value != null;
+
+}
+
+/**
+ * Checks the existence of a value. If it does not exist it returns a desired default.
+ * @param value - value to check exists
+ * @param defaultValue - value to return if provided value does not exist
+ * @returns {Object} - The original value supplied or the default value if original value does not exist
+ */
+function defaulty(value, defaultValue) {
+
+  if (existy(value)) {
+    return value;
+  }
+  return defaultValue;
 
 }
 
@@ -110,6 +127,7 @@ function floaty(stringFloat) {
 module.exports = {
 
   existy: existy,
+  defaulty: defaulty,
   cleansey: cleansey,
   removey: removey,
   clippy: clippy,

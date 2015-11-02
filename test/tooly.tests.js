@@ -24,9 +24,10 @@ describe('Util Tools', function () {
 
     });
 
-    it('should return false when string of value "null" passed in', function () {
+    it('should return false when string of value "null" or "undefined" passed in', function () {
 
       expect(tooly.existy('null')).to.equal(false);
+      expect(tooly.existy('undefined')).to.equal(false);
 
     });
 
@@ -260,9 +261,13 @@ describe('Util Tools', function () {
 
     it('should return the value if exists', function () {
 
+      var arr = [];
+      var obj = {};
+      var func = function() {};
       expect(tooly.defaulty('hello', someDefault)).to.equal('hello');
-      expect(tooly.defaulty([], someDefault)).to.equal([]);
-      expect(tooly.defaulty({}, someDefault)).to.equal({});
+      expect(tooly.defaulty(arr, someDefault)).to.equal(arr);
+      expect(tooly.defaulty(obj, someDefault)).to.equal(obj);
+      expect(tooly.defaulty(func, someDefault)).to.equal(func);
 
     });
 

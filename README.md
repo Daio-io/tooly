@@ -7,8 +7,7 @@ A micro utility library for Javascript
 
 ## API
 
-
-```existy(value);```    
+```existy(value);``` 
 Checks the existence of any value given. Under the hood it checks if the value is null or undefined and returns a bool.
  If the value passed in is a ```string``` it checks for empty strings and string representations of null and undefined.
   
@@ -17,7 +16,7 @@ Checks the existence of any value given. Under the hood it checks if the value i
 Does the same checks as ```existy(value);``` but if the value does not existy it will return your desired default.
 
     
-```cleansey(string);```
+```cleansey(string);```     
 Removes any characters which you would not expect to be included in an English word.
 
 
